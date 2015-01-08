@@ -6,14 +6,15 @@
 //  Copyright (c) 2015 JP Skowron. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "RootViewController.h"
 
-@interface ViewController ()
+@interface RootViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *theFutureLabel;
+@property (weak, nonatomic) IBOutlet UILabel *thePreCpgsLabel;
 
 @end
 
-@implementation ViewController
+@implementation RootViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,6 +27,11 @@
     self.theFutureLabel.center = point;
     NSLog(@"%f", point.x);
     NSLog(@"%f", point.y);
+
+    if (CGRectContainsPoint(self.thePreCpgsLabel.frame, point)) {
+        self.theFutureLabel.text = @"A ficticious and incriminating future";
+        [self.theFutureLabel sizeToFit];
+    }
 }
 
 
